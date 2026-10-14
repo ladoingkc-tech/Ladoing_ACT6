@@ -1,21 +1,15 @@
-
 from flask import Flask, jsonify, request, render_template
 
 app = Flask(__name__)
 
-# Web interface
 @app.route("/")
 def home():
     return render_template("index.html")
 
-
-# Home API endpoint
 @app.route("/api")
 def api_home():
     return "Welcome to my first API!"
 
-
-# Student API endpoint
 @app.route("/student")
 def get_student():
     return jsonify({
@@ -26,15 +20,10 @@ def get_student():
         "section": "B"
     })
 
-
-# Greeting API endpoint
 @app.route("/hello")
 def hello():
     name = request.args.get("name", "student")
-    return jsonify({
-        "message": f"Hello, {name}!"
-    })
-
+    return jsonify({"message": f"Hello, {name}!"})
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)

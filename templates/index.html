@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Flask API</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>My Flask API</h1>
+        <p>Building a Web Interface for a Flask API</p>
+    </header>
+
+    <main>
+        <section class="welcome">
+            <h2>Welcome to My API!</h2>
+            <p>A simple web interface connected to Python Flask.</p>
+            <a class="button" href="/api">Test Home API</a>
+        </section>
+
+        <section class="card">
+            <h2>Student Information</h2>
+            <p>Click below to retrieve student information.</p>
+            <button onclick="getStudent()">View Student</button>
+            <pre id="studentResult">Student information will appear here.</pre>
+        </section>
+
+        <section class="card">
+            <h2>Greeting API</h2>
+            <form id="greetingForm">
+                <input id="name" type="text" placeholder="Enter your name">
+                <button type="submit">Get Greeting</button>
+            </form>
+            <p id="greetingResult">Your greeting will appear here.</p>
+        </section>
+
+        <section class="card">
+            <h2>API Endpoints</h2>
+            <ul>
+                <li><a href="/api">/api</a> - Welcome message</li>
+                <li><a href="/student">/student</a> - Student information</li>
+                <li><a href="/hello">/hello</a> - Default greeting</li>
+                <li>/hello?name=Jane - Greeting with a name</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>My Flask API Project | Python and Flask</footer>
+
+    <script>
+        async function getStudent() {
+            const output = document.getElementById("studentResult");
+            output.textContent = "Loading...";
+
+            try {
+                const response = await fetch("/student");
+                if (!response.ok) throw new Error("Unable to load student data.");
+                const data = await response.json();
+                output.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                output.textContent = error.message;
+            }
+        }
+
+        document.getElementById("greetingForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const name = document.getElementById("name").value.trim() || "student";
+            const output = document.getElementById("greetingResult");
+            output.textContent = "Loading...";
+
+            try {
+                const response = await fetch("/hello?name=" + encodeURIComponent(name));
+                if (!response.ok) throw new Error("Unable to get greeting.");
+                const data = await response.json();
+                output.textContent = data.message;
+            } catch (error) {
+                output.textContent = error.message;
+            }
+        });
+    </script>
+</body>
+</html>
