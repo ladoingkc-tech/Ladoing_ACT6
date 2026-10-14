@@ -1,3 +1,4 @@
+/* General Styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,116 +7,213 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: #f1f5f9;
-    color: #1e293b;
+    background: #fff5f8;
+    color: #51404a;
     line-height: 1.6;
 }
 
+/* Header */
 header {
-    background: #2563eb;
+    background: linear-gradient(135deg, #f8a9c4, #ed7fa7);
     color: white;
     text-align: center;
-    padding: 30px 15px;
+    padding: 35px 15px;
+    border-bottom: 5px solid #f6d5e0;
 }
 
 header h1 {
+    font-size: 32px;
     margin-bottom: 5px;
+    letter-spacing: 1px;
 }
 
-main {
-    width: 90%;
-    max-width: 850px;
-    margin: 25px auto;
-}
-
-.welcome {
-    background: #dbeafe;
-    padding: 25px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-}
-
-.welcome h2, .card h2 {
-    color: #2563eb;
-    margin-bottom: 8px;
-}
-
-.card {
-    background: white;
-    padding: 22px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
-}
-
-button, .button {
-    display: inline-block;
-    background: #2563eb;
-    color: white;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 6px;
-    text-decoration: none;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-button:hover, .button:hover {
-    background: #1d4ed8;
-}
-
-input {
-    width: 100%;
-    padding: 11px;
-    border: 1px solid #cbd5e1;
-    border-radius: 6px;
-    margin: 12px 0;
+header p {
+    color: #fff8fb;
     font-size: 15px;
 }
 
+/* Main Container */
+main {
+    width: 90%;
+    max-width: 850px;
+    margin: 30px auto;
+}
+
+/* Welcome Section */
+.welcome {
+    background: white;
+    padding: 30px;
+    border-radius: 16px;
+    margin-bottom: 22px;
+    border: 1px solid #f5d3df;
+    box-shadow: 0 5px 15px rgba(220, 100, 145, 0.10);
+}
+
+.welcome h2 {
+    color: #d94f87;
+    margin-bottom: 10px;
+    font-size: 25px;
+}
+
+.welcome p {
+    margin-bottom: 18px;
+    color: #78616d;
+}
+
+/* Cards */
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 16px;
+    margin-bottom: 22px;
+    border: 1px solid #f4d6e1;
+    box-shadow: 0 5px 15px rgba(220, 100, 145, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(220, 100, 145, 0.13);
+}
+
+.card h2 {
+    color: #d94f87;
+    margin-bottom: 10px;
+    font-size: 22px;
+}
+
+.card p {
+    margin-bottom: 12px;
+}
+
+/* Buttons */
+button,
+.button {
+    display: inline-block;
+    background: #ec78a3;
+    color: white;
+    border: none;
+    padding: 11px 19px;
+    border-radius: 9px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+button:hover,
+.button:hover {
+    background: #d94f87;
+    transform: translateY(-1px);
+}
+
+/* Input Field */
+input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #edbfd0;
+    border-radius: 9px;
+    margin: 12px 0;
+    font-size: 15px;
+    background: #fffafd;
+    color: #51404a;
+    outline: none;
+}
+
+input:focus {
+    border-color: #ec78a3;
+    box-shadow: 0 0 0 3px rgba(236, 120, 163, 0.15);
+}
+
+input::placeholder {
+    color: #b59aa7;
+}
+
+/* Student Information */
 pre {
-    background: #f8fafc;
-    border: 1px solid #e2e8f0;
-    border-radius: 6px;
-    padding: 15px;
+    background: #fff5f8;
+    border: 1px solid #f4d6e1;
+    border-radius: 10px;
+    padding: 16px;
     margin-top: 15px;
     white-space: pre-wrap;
     overflow-wrap: anywhere;
+    color: #775466;
+    font-size: 14px;
 }
 
+/* Greeting Result */
 #greetingResult {
-    background: #eff6ff;
-    color: #1d4ed8;
-    padding: 12px;
-    border-radius: 6px;
+    background: #fff0f5;
+    color: #c83f78;
+    padding: 14px;
+    border-left: 4px solid #ec78a3;
+    border-radius: 8px;
     margin-top: 15px;
     overflow-wrap: anywhere;
 }
 
+/* API Endpoint List */
 ul {
     padding-left: 22px;
 }
 
 li {
-    margin: 8px 0;
+    margin: 10px 0;
 }
 
 a {
-    color: #2563eb;
+    color: #d94f87;
+    text-decoration: none;
 }
 
+a:hover {
+    color: #ad285f;
+    text-decoration: underline;
+}
+
+/* Footer */
 footer {
+    background: #fff0f5;
+    border-top: 1px solid #f4d6e1;
     text-align: center;
-    padding: 20px;
-    color: #64748b;
+    padding: 22px;
+    color: #a66b85;
+    font-size: 14px;
+    margin-top: 30px;
 }
 
+/* Mobile Responsive */
 @media (max-width: 600px) {
-    main {
-        width: 94%;
+    header {
+        padding: 27px 15px;
     }
 
-    .welcome, .card {
-        padding: 18px;
+    header h1 {
+        font-size: 26px;
+    }
+
+    main {
+        width: 94%;
+        margin: 20px auto;
+    }
+
+    .welcome,
+    .card {
+        padding: 19px;
+    }
+
+    .welcome h2 {
+        font-size: 22px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+    }
+
+    button,
+    .button {
+        max-width: 100%;
     }
 }
